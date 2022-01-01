@@ -1,0 +1,119 @@
+===========================================================================
+                    NVIDIA Tegra Linux Driver Package
+                            Quick Start Guide
+                             R31.1.0 Release
+===========================================================================
+Use these procedures to quickly get started using the NVIDIA Tegra Linux Driver
+Package in conjunction with a Jetson Developer Kit.
+
+Prerequisites
+---------------------------------------------------------------------------
+To use the Tegra Linux Driver Package, these requirements must be met:
+
+- A Jetson Developer Kit, equipped with an NVIDIA Tegra Processor.
+- A Linux host system running x86_64 Ubuntu v16.04 or v18.04.
+- The Jetson Developer Kit connection as follows:
+  - Power adapter plugged into the wall socket and the Jetson Developer Kit.
+  - A USB-C cable connecting the Linux host system to the Jetson Developer Kit
+    USB-C port located on the opposite side of power port for flashing.
+  - An HDMI display device connected to the Jetson Developer Kit.
+  - To connect USB peripherals such as keyboard, mouse, or USB/Ethernet
+    adapter for network connection, a USB hub must be connected to the
+    eSATA/USB3 port on the Jetson Developer Kit.
+  - The wired Ethernet connected to install software on the Jetson
+    Developer Kit after installation of Linux for Tegra (L4T).
+
+Consult the Tegra Linux Driver Package Release Notes for board layout
+information for more details.
+
+Downloading and Installing the Release Package
+-------------------------------------------------------------------------
+Follow these procedures to download the latest release package.
+
+1. Download the latest version of the L4T release package and sample
+   file system for the Jetson Developer Kit available from the NVIDIA
+   Embedded Developer Zone at:
+   https://developer.nvidia.com/linux-tegra
+
+2. Untar the files and assemble the root file system with these commands:
+
+   sudo tar xpf Jetson_Linux_R31.1.0_aarch64.tbz2
+   cd Linux_for_Tegra/rootfs/
+   sudo tar xpf ../../Tegra_Linux_Sample-Root-Filesystem_R31.1.0_aarch64.tbz2
+   cd ..
+   sudo ./apply_binaries.sh
+
+Placing the Jetson Developer Kit in Recovery Mode
+-------------------------------------------------------------------------
+1. Ensure the Linux host system is connected to the Jetson Developer Kit USB-C
+   port located on the opposite side of the power port.
+
+2. Ensure the power adapter plugged into the wall socket and the Jetson Developer Kit.
+
+3. Power up by toggling power button.
+   (The power button is the left most one of 3 buttons.)
+
+4. Place the Jetson Developer Kit into force recovery mode as follows:
+   - Press and hold the force recovery button.
+     (The force recovery button is the middle one of 3 buttons.)
+
+5. Toggle reset button.
+   (The reset button is the right most one of 3 buttons.)
+
+6. Wait two seconds and release the force recovery button.
+
+Flashing the NVIDIA Tegra Linux Driver and Root File System onto internal
+storage
+-------------------------------------------------------------------------
+Go to Linux_for_Tegra directory and execute this command on the Linux host system
+  sudo ./flash.sh <BOARD> mmcblk0p1
+
+  Where <BOARD> is jetson-xavier
+
+The flashing procedure takes approximately 10 minutes or more.
+Upon completion, the Jetson Developer Kit automatically reboots.
+A command prompt windows opens on all the display devices attached to
+the Developer Kit.
+
+The default login credentials are:
+- Username: nvidia
+- Password: nvidia
+
+For security purposes and for best practices, change the default password.
+
+Congratulations, you have successfully setup the Jetson Developer Kit.
+
+Installing Additional Optional Packages
+-------------------------------------------------------------------------
+Use these procedures to install additional Ubuntu packages onto the Jetson
+Developer Kit.
+
+1. Make sure the Jetson Developer Kit has working Internet connection over
+   the wired network.
+
+2. Obtain the IP address as follows:
+   If you are not running a graphical desktop environment that automatically
+   configures your network connection, acquire an IP address with the command:
+
+   sudo dhclient <interface>
+
+   Where <interface> is the name of the wired ethernet adapter for the
+   Wired Jetson Developer Kit. Obtain the name by executing the command:
+
+   ip link
+
+   The command returns eth0, enx<mac_address>, or a similar name.
+
+3. Install the package using these commands:
+
+   sudo apt update
+   sudo apt install ``package-names''
+
+   Where ``package-names'' is the list of the package names you wish
+   to install.
+
+4. Reboot the system using the command:
+
+   sudo reboot
+
+Consult the Release Notes for up-to-date platform and feature usage information.
