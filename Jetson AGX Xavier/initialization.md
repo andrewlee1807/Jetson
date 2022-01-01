@@ -30,6 +30,9 @@ During the install, make sure to plug a keyboard and monitor into the Jetson. On
 Press and hold the center button, and press and release the reset button (on the right). AGX Xavier buttons.
 ![img_12.png](img_12.png)
 ## 6.	(Ubuntu 18.04) Click the Flash
+- Check Jetson AGX Xavier was connected to Linux Ubuntu 18.04 (appears Nvidia Corp.)
+![img_19.png](img_19.png)
+- Then click Flash to install OS
 ![img_13.png](img_13.png)
 ## 7.	(Jetson AGX Xavier) Setup the Username. Passwd Jetson
 ![img_14.png](img_14.png)
