@@ -47,3 +47,5 @@ Press and hold the center button, and press and release the reset button (on the
 ![img_17.png](img_17.png)
 ## 10.	Waiting
 ![img_18.png](img_18.png)
+# Enjoy!
+![json-xavier.gif](json-xavier.gif)
